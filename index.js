@@ -7,9 +7,9 @@ const rateLimit = require('express-rate-limit');
 const cors = require('cors')
 const app = express();
 
-let limiter = rateLimit({
-    max: 3,
-    windowMs: 60*60*1000,
+let limiter = rateLimit({ // middleware para prevençao de ataques ddos
+    max: 3,               //numero de tentativas até o bloqueio
+    windowMs: 1*20*1000, //tempo de bloqueio
     message:'We have received too many requests from this IP'
 });
 
